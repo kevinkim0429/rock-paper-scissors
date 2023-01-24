@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice () {
+            let cpuNum = Math.floor((Math.random() * 3)+1);
+            if (cpuNum === 1) {
+                return 'rock';
+            } else if (cpuNum === 2) {
+                return 'paper';
+            } else {
+                return 'scissor';
+            }
+        }
+
+        function playRound() {
+            let playerSelection = prompt(`Input 'rock', 'paper', or 'scissor'`)
+            playerSelection = playerSelection.toLowerCase()
+            let computerSelection  = getComputerChoice()
+
+            // console.log("Player Selection is: " + playerSelection)
+            // console.log("Computer Selection is: " + computerSelection)
+
+            if (playerSelection === computerSelection) {
+                return `It's Tied!`
+            }
+
+            if (playerSelection === 'rock') {
+                if (computerSelection === 'paper') {
+                    return "Paper Beats Rock, Computer Wins"
+                }else if (computerSelection === 'scissor') {
+                    return "Rock Beats Scissors, You Win"
+                }
+            } else if (playerSelection === 'paper') {
+                if (computerSelection === 'scissor') {
+                    return "Scissor Beats Paper, Computer Wins"
+                }else if (computerSelection === 'rock') {
+                    return "Paper Beats Rock, You Win"
+                }
+            } else { //playerSelection === 'scissor'//
+                if (computerSelection === 'rock') {
+                    return "Rock Beats Scissor, Computer Wins"
+                }else if (computerSelection === 'paper') {
+                    return "Scissor Beats Paper, You Win"
+                }
+            }
+
+            
+        }
+
+        function game() {
+            let inputNumber = prompt('Input # of Rounds: ')
+            inputNumber = Number(inputNumber)
+            for (let i = 0; i < inputNumber; i++) {
+                console.log(playRound())
+            }
+        }
+
+
+
+        // game(parameter of five... = '5') {
+        //     run playround five times...
+        //     for (let i = 0; i < 5; i++) {
+        // your code here!
+
+    </script>
+</body>
+</html>
